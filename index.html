@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0"/>
+    <title>Motion Sensorsサンプル</title>
+    <script>
+      window.addEventListener("devicemotion", function(event1){
+        var x = event1.accelerationIncludingGravity.x;
+        var y = event1.accelerationIncludingGravity.y;
+        var z = event1.accelerationIncludingGravity.z;
+
+        var FILTERING_VALUE = parseFloat(0.1);
+
+        var low_x = parseFloat(0);
+        var low_y = parseFloat(0);
+        var low_z = parseFloat(0);
+
+        low_x = eval(x * FILTERING_VALUE + low_x * (1.0 - FILTERING_VALUE));
+        low_y = eval(y * FILTERING_VALUE + low_y * (1.0 - FILTERING_VALUE));
+        low_z = eval(z * FILTERING_VALUE + low_z * (1.0 - FILTERING_VALUE));
+
+         
+        var result1 = document.getElementById("result1");
+        result1.innerHTML = 
+          "X："+ Math.round(x * 10) / 10 +"<br>" +
+          "Y："+ Math.round(y * 10) / 10 +"<br>" + 
+          "Z："+ Math.round(z * 10) / 10 +"<br>" +
+          "lowX:："+ Math.round(low_x * 10) / 10 +"<br>" +
+          "lowY:："+ Math.round(low_y * 10) / 10 +"<br>" +
+          "lowZ:："+ Math.round(low_z * 10) / 10 +"<br>";
+      }, true);
+       
+      window.addEventListener('deviceorientation', function(event2) {
+        var alpha = event2.alpha;
+        var beta = event2.beta;
+        var gamma = event2.gamma;
+         
+        result2.innerHTML = 
+          "alpha："+ Math.round(alpha * 10) / 10 +"<br>" +
+          "beta："+ Math.round(beta * 10) / 10 +"<br>" + 
+          "gamma："+ Math.round(gamma * 10) / 10;
+        }, true);
+    </script>
+  </head>
+  <body>
+    <div id="result1"></div>
+    <div id="result2"></div>
+  </body>
+</html>
