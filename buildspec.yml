@@ -3,4 +3,4 @@ version: 0.1
 phases:
   build:
     commands:
-      - aws s3 sync --exact-timestamps --delete contents s3://itamaev2
+      - aws s3 sync --exact-timestamps --delete contents s3://itamaev2/fot/motion

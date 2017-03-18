@@ -24,13 +24,13 @@
         var result1 = document.getElementById("result1");
         result1.innerHTML = 
           "<h1>Raw</h1>" +
-          "X："+ Math.round(x * 10) / 10 +"<br>" +
-          "Y："+ Math.round(y * 10) / 10 +"<br>" + 
-          "Z："+ Math.round(z * 10) / 10 +"<br>" +
-          "<h1>low path filter</h1>" +
-          "lowX:："+ Math.round(low_x * 10) / 10 +"<br>" +
-          "lowY:："+ Math.round(low_y * 10) / 10 +"<br>" +
-          "lowZ:："+ Math.round(low_z * 10) / 10 +"<br>";
+          "X："+ Math.round(x * 10) / 10 + "<br>" +
+          "Y："+ Math.round(y * 10) / 10 + "<br>" + 
+          "Z："+ Math.round(z * 10) / 10 + "<br>" +
+          "<h1>Low-pass filter</h1>" +
+          "lowX:："+ Math.round(low_x * 10) / 10 + "<br>" +
+          "lowY:："+ Math.round(low_y * 10) / 10 + "<br>" +
+          "lowZ:："+ Math.round(low_z * 10) / 10 + "<br>" ;
       }, true);
        
       window.addEventListener('deviceorientation', function(event2) {
@@ -39,9 +39,10 @@
         var gamma = event2.gamma;
          
         result2.innerHTML = 
-          "alpha："+ Math.round(alpha * 10) / 10 +"<br>" +
-          "beta："+ Math.round(beta * 10) / 10 +"<br>" + 
-          "gamma："+ Math.round(gamma * 10) / 10;
+          "<h1></h1>" +
+          "alpha："+ Math.round(alpha * 10) / 10 + "<br>" +
+          "beta："+ Math.round(beta * 10) / 10 + "<br>" + 
+          "gamma："+ Math.round(gamma * 10) / 10 ;
         }, true);
     </script>
   </head>
